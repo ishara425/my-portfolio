@@ -237,7 +237,7 @@ export default function Portfolio() {
           <div className="about-grid" style={{ display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "48px", marginTop: "44px" }}>
             <div>
               <p style={{ fontSize: "15px", color: "#888", lineHeight: 1.9, marginBottom: "18px" }}>
-                I'm <span style={{ color: "#f97316", fontWeight: 700 }}>Ishara Palangasinghe</span>, an ICT Undergraduate passionate about full-stack development and cloud technologies.
+                I'm <span style={{ color: "#f97316", fontWeight: 700 }}>Ishara Palangasinghe</span>, Passionate full-stack developer and undergraduate at the University of Ruhuna, skilled in React, Spring Boot, Node.js, and Flutter, with a growing interest in DevOps.
               </p>
               <p style={{ fontSize: "15px", color: "#888", lineHeight: 1.9, marginBottom: "18px" }}>
                 Currently building the <span style={{ color: "#ddd" }}>AIESEC Ruhuna Web App</span> and a <span style={{ color: "#ddd" }}>Medicine Stock Management System</span>. Always learning, always building.
