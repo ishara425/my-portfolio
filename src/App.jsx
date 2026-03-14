@@ -71,7 +71,15 @@ export default function Portfolio() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setMenuOpen(false);
   };
-  const handleCV = () => alert("CV will be available soon! Please contact me directly.");
+
+  const handleCV = () => {
+    const link = document.createElement("a");
+    link.href = "/src/assets/I.S.palangasinghe.pdf";
+    link.download = "Ishara_Palangasinghe_CV.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <div style={{ fontFamily:"'Plus Jakarta Sans',sans-serif", background:"#0a0a0a", color:"#e0e0e0", minHeight:"100vh" }}>
@@ -84,17 +92,14 @@ export default function Portfolio() {
 
         @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
         @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-        @keyframes cursorBlink{0%,100%{opacity:1}50%{opacity:0}}
 
         .fade{animation:fadeIn .6s ease both}
         .d1{animation-delay:.1s}.d2{animation-delay:.25s}.d3{animation-delay:.4s}.d4{animation-delay:.55s}
 
-        /* NAV */
         .nav-link{font-size:15px;font-weight:500;color:#aaa;cursor:pointer;
           transition:color .2s;padding:4px 0;text-decoration:none}
         .nav-link:hover,.nav-link.active{color:#f97316}
 
-        /* BUTTONS */
         .btn-solid{background:#f97316;color:#fff;border:none;cursor:pointer;
           font-family:inherit;font-weight:700;font-size:15px;
           padding:12px 28px;border-radius:8px;transition:all .2s}
@@ -106,34 +111,28 @@ export default function Portfolio() {
           transition:all .2s}
         .btn-border:hover{border-color:#f97316;color:#f97316;transform:translateY(-2px)}
 
-        /* ICON BUTTON */
         .icon-btn{width:46px;height:46px;border-radius:50%;
           background:#1a1a1a;border:1px solid #2a2a2a;
           display:flex;align-items:center;justify-content:center;
           cursor:pointer;transition:all .2s;text-decoration:none;color:#ccc;font-size:20px}
         .icon-btn:hover{border-color:#f97316;color:#f97316;background:#1f1a14}
 
-        /* CARDS */
         .card{background:#111;border:1px solid #222;border-radius:12px;
           padding:24px;transition:all .25s}
         .card:hover{border-color:#f97316;transform:translateY(-3px)}
 
-        /* TECH TAG */
         .tag{display:inline-block;font-size:12px;font-weight:600;
           color:#f97316;border:1px solid rgba(249,115,22,.35);
           background:rgba(249,115,22,.07);
           padding:4px 12px;border-radius:20px;margin:3px}
 
-        /* VIEW LINK */
         .view-link{font-size:14px;font-weight:600;color:#f97316;
           text-decoration:none;transition:gap .2s;display:inline-flex;align-items:center;gap:5px}
         .view-link:hover{gap:9px}
 
-        /* SECTION TITLE */
         .sec-title{font-size:clamp(28px,4vw,38px);font-weight:800;
           color:#f97316;text-align:center;margin-bottom:36px;letter-spacing:-.02em}
 
-        /* RESPONSIVE */
         @media(max-width:768px){
           .desktop-nav{display:none!important}
           .hero-inner{flex-direction:column!important;text-align:center!important;gap:40px!important}
@@ -153,15 +152,12 @@ export default function Portfolio() {
         borderBottom:"1px solid #1a1a1a",padding:"0 6%"
       }}>
         <div style={{maxWidth:"1100px",margin:"0 auto",display:"flex",alignItems:"center",justifyContent:"space-between",height:"64px"}}>
-
-          {/* logo */}
           <span onClick={()=>scrollTo("home")} style={{cursor:"pointer",fontWeight:800,fontSize:"17px",letterSpacing:"-.03em"}}>
             <span style={{color:"#e0e0e0"}}>ishara</span>
             <span style={{color:"#f97316"}}>.</span>
             <span style={{color:"#f97316"}}>dev</span>
           </span>
 
-          {/* desktop nav */}
           <div className="desktop-nav" style={{display:"flex",gap:"32px",alignItems:"center"}}>
             {NAV.map(n=>(
               <span key={n} className={`nav-link${activeSection===n.toLowerCase()?" active":""}`}
@@ -169,7 +165,6 @@ export default function Portfolio() {
             ))}
           </div>
 
-          {/* hamburger */}
           <button onClick={()=>setMenuOpen(o=>!o)} className="mobile-menu"
             style={{background:"none",border:"none",cursor:"pointer",flexDirection:"column",gap:"5px",padding:"4px"}}>
             {[0,1,2].map(i=>(
@@ -223,6 +218,7 @@ export default function Portfolio() {
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                 </svg>
               </a>
+              {/* CV download icon button */}
               <button className="icon-btn" onClick={handleCV} title="Download CV">
                 <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
                   <path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/>
@@ -255,6 +251,13 @@ export default function Portfolio() {
             <div className="fade d4" style={{display:"flex",gap:"14px",flexWrap:"wrap"}}>
               <button className="btn-solid" onClick={()=>scrollTo("projects")}>View Projects</button>
               <button className="btn-border" onClick={()=>scrollTo("contact")}>Contact Me</button>
+              {/* CV download text button in hero */}
+              <button className="btn-border" onClick={handleCV} style={{display:"inline-flex",alignItems:"center",gap:"8px"}}>
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                  <path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/>
+                </svg>
+                Download CV
+              </button>
             </div>
           </div>
         </div>
@@ -277,13 +280,13 @@ export default function Portfolio() {
                 <div>{FRONTEND_SKILLS.map(s=><span key={s} className="tag">{s}</span>)}</div>
               </div>
               <div>
-                <h3 style={{fontWeight:700,fontSize:"15px",color:"#e0e0e0",marginBottom:"12px"}}>Backend</h3>
+                <h3 style={{fontWeight:700,fontSize:"15px",color:"#e0e0e0",marginBottom:"12px"}}>Backend & Cloud</h3>
                 <div>{BACKEND_SKILLS.map(s=><span key={s} className="tag">{s}</span>)}</div>
               </div>
             </div>
           </div>
 
-          {/* Education + Experience */}
+          {/* Education + Achievements */}
           <div className="about-bottom" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"20px"}}>
             <div className="card">
               <h3 style={{fontWeight:700,fontSize:"15px",color:"#e0e0e0",marginBottom:"14px"}}>🎓&nbsp; Education</h3>
@@ -319,11 +322,33 @@ export default function Portfolio() {
                     ICT Students' Circle · University of Ruhuna
                   </p>
                   <p style={{fontSize:"13.5px",color:"#888",lineHeight:1.7}}>
-                    Champions of an intense problem-solving hackathon on HackerRank, competing across multiple programming languages with team <strong style={{color:"#c0c0c0"}}>'Ones &amp; Zeros'.</strong>&amp; Minoka.
+                    Champions of an intense problem-solving hackathon on HackerRank, competing across multiple programming languages with team <strong style={{color:"#c0c0c0"}}>'Ones &amp; Zeros'</strong> — Dineth, Samudi, Piyumi &amp; Minoka.
                   </p>
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* CV download card */}
+          <div style={{marginTop:"20px",background:"linear-gradient(135deg,rgba(249,115,22,.07),rgba(249,115,22,.02))",
+            border:"1px solid rgba(249,115,22,.22)",borderRadius:"12px",padding:"20px 24px",
+            display:"flex",alignItems:"center",justifyContent:"space-between",flexWrap:"wrap",gap:"16px"}}>
+            <div style={{display:"flex",alignItems:"center",gap:"14px"}}>
+              <div style={{width:"44px",height:"44px",borderRadius:"10px",
+                background:"rgba(249,115,22,.1)",border:"1px solid rgba(249,115,22,.25)",
+                display:"flex",alignItems:"center",justifyContent:"center",fontSize:"22px"}}>📄</div>
+              <div>
+                <div style={{fontWeight:700,fontSize:"15px",color:"#e8e8e8"}}>Curriculum Vitae</div>
+                <div style={{fontSize:"12px",color:"#555",marginTop:"2px"}}>Ishara Palangasinghe — Full Stack Developer</div>
+              </div>
+            </div>
+            <button className="btn-solid" onClick={handleCV}
+              style={{display:"inline-flex",alignItems:"center",gap:"8px",padding:"11px 24px",fontSize:"14px",whiteSpace:"nowrap"}}>
+              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                <path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/>
+              </svg>
+              Download CV
+            </button>
           </div>
         </div>
       </section>
@@ -390,20 +415,22 @@ export default function Portfolio() {
             ))}
           </div>
 
-          <button className="btn-solid" style={{width:"100%",padding:"14px"}} onClick={handleCV}>
-            ↓ Download CV
+          <button className="btn-solid" style={{width:"100%",padding:"14px",display:"flex",alignItems:"center",justifyContent:"center",gap:"8px"}} onClick={handleCV}>
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+              <path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/>
+            </svg>
+            Download My CV
           </button>
-          <p style={{fontSize:"12px",color:"#333",marginTop:"8px"}}>PDF will be available soon</p>
         </div>
       </section>
 
       {/* ═══════════════ FOOTER ═══════════════ */}
-      <footer style={{borderTop:"1px solid #1a1a1a",padding:"24px 6%",textAlign:"center"}}>
+      <footer style={{borderTop:"1px solid #1a1a1a",padding:"24px 6%"}}>
         <div style={{maxWidth:"1100px",margin:"0 auto",display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:"12px"}}>
           <span style={{fontWeight:800,fontSize:"15px"}}>
             <span style={{color:"#e0e0e0"}}>ishara</span><span style={{color:"#f97316"}}>.dev</span>
           </span>
-          <span style={{fontSize:"12px",color:"#333"}}>© 2025 Ishara Palangasinghe · </span>
+          <span style={{fontSize:"12px",color:"#333"}}>© 2025 Ishara Palangasinghe</span>
           <div style={{display:"flex",gap:"20px"}}>
             {[{l:"GitHub",h:"https://github.com/ishara425"},{l:"LinkedIn",h:"https://linkedin.com/in/ishara-palangasinghe"},{l:"Email",h:"mailto:isharapalangasingha@gmail.com"}].map(s=>(
               <a key={s.l} href={s.h} target="_blank" rel="noreferrer"
