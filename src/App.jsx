@@ -19,6 +19,24 @@ const PROJECTS = [
     tech: ["Java"],
     link: "https://github.com/ishara425",
   },
+  {
+    title: "ChatApp System",
+    desc: "A fully functional real-time chat application supporting Admin and User roles with room management, threaded chats, chat history saved as .txt files, and profile display during conversations.",
+    tech: ["Java Swing", "Java RMI", "Hibernate", "MySQL"],
+    link: "https://github.com/ishara425",
+  },
+  {
+    title: "HRGSMS – Hotel Reservation & Guest Services",
+    desc: "A comprehensive web-based hotel management system for Morena Hotels, replacing a legacy desktop system with real-time room availability, automated billing, guest services tracking, and multi-branch support.",
+    tech: ["React", "Vite", "Tailwind CSS", "Node.js", "Express", "MySQL"],
+    link: "https://github.com/Nepul1234/HRGSMS-ADBMS-Project",
+  },
+  {
+    title: "Soft Clothes – Online Clothing Store",
+    desc: "A web-based clothing store management application automating customer registration, order management, product cataloging, and payment tracking with business insight reports.",
+    tech: ["PHP", "HTML", "CSS", "JavaScript", "MySQL"],
+    link: "https://github.com/ishara425",
+  },
 ];
 
 const FRONTEND_SKILLS = ["React.js", "JavaScript", "HTML", "CSS", "Tailwind CSS"];
@@ -322,34 +340,14 @@ export default function Portfolio() {
                     ICT Students' Circle · University of Ruhuna
                   </p>
                   <p style={{fontSize:"13.5px",color:"#888",lineHeight:1.7}}>
-                    Champions of an intense problem-solving hackathon on HackerRank, competing across multiple programming languages with team <strong style={{color:"#c0c0c0"}}>'Ones &amp; Zeros'</strong> — Dineth, Samudi, Piyumi &amp; Minoka.
+                    Champions of an intense problem-solving hackathon on HackerRank, competing across multiple programming languages with team <strong style={{color:"#c0c0c0"}}>'Ones &amp; Zeros'</strong> 
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* CV download card */}
-          <div style={{marginTop:"20px",background:"linear-gradient(135deg,rgba(249,115,22,.07),rgba(249,115,22,.02))",
-            border:"1px solid rgba(249,115,22,.22)",borderRadius:"12px",padding:"20px 24px",
-            display:"flex",alignItems:"center",justifyContent:"space-between",flexWrap:"wrap",gap:"16px"}}>
-            <div style={{display:"flex",alignItems:"center",gap:"14px"}}>
-              <div style={{width:"44px",height:"44px",borderRadius:"10px",
-                background:"rgba(249,115,22,.1)",border:"1px solid rgba(249,115,22,.25)",
-                display:"flex",alignItems:"center",justifyContent:"center",fontSize:"22px"}}>📄</div>
-              <div>
-                <div style={{fontWeight:700,fontSize:"15px",color:"#e8e8e8"}}>Curriculum Vitae</div>
-                <div style={{fontSize:"12px",color:"#555",marginTop:"2px"}}>Ishara Palangasinghe — Full Stack Developer</div>
-              </div>
-            </div>
-            <button className="btn-solid" onClick={handleCV}
-              style={{display:"inline-flex",alignItems:"center",gap:"8px",padding:"11px 24px",fontSize:"14px",whiteSpace:"nowrap"}}>
-              <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
-                <path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/>
-              </svg>
-              Download CV
-            </button>
-          </div>
+         
         </div>
       </section>
 
@@ -415,12 +413,7 @@ export default function Portfolio() {
             ))}
           </div>
 
-          <button className="btn-solid" style={{width:"100%",padding:"14px",display:"flex",alignItems:"center",justifyContent:"center",gap:"8px"}} onClick={handleCV}>
-            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-              <path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/>
-            </svg>
-            Download My CV
-          </button>
+         
         </div>
       </section>
 
