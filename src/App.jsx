@@ -92,7 +92,7 @@ export default function Portfolio() {
 
   const handleCV = () => {
     const link = document.createElement("a");
-    link.href = "/src/assets/I.S.palangasinghe.pdf";
+    link.href = "I.S.palangasinghe.pdf";
     link.download = "Ishara_Palangasinghe_CV.pdf";
     document.body.appendChild(link);
     link.click();
@@ -219,7 +219,7 @@ export default function Portfolio() {
               animation:"float 5s ease-in-out infinite",
               background:"#1a1a1a",flexShrink:0
             }}>
-              <img src="/src/assets/ishara.jpeg" alt="Ishara"
+              <img src="/ishara.jpeg" alt="Ishara"
                 style={{width:"100%",height:"100%",objectFit:"cover"}}
                 onError={e=>{e.target.style.display="none";}}/>
             </div>
